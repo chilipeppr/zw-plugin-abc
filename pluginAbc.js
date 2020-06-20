@@ -197,6 +197,14 @@ background-color: #C5C9CD;
 
         console.log("onComposeBoxLoad. evt:", evt);
 
+        // just to make sure we are later in the stack so our icons load last...
+        setTimeout(this.onComposeBoxLoadStepTwo.bind(this, evt), 5);
+    },
+
+    onComposeBoxLoadStepTwo: function(evt) {
+
+        console.log("onComposeBoxLoadStepTwo. evt:", evt);
+
         // remove purple from bubbles
         $('.message-panel_messageContainer').removeClass("plugin-abc-bubble");
         $('.send-message-panel_buttonWrapper > .zk-button.zk-button-primary > div').text("Send");
